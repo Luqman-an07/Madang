@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TransactionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -76,6 +77,18 @@ Route::middleware(['auth', 'verified', 'admin'])
             'store' => 'products.store',
             'update' => 'products.update',
             'destroy' => 'products.destroy',
+        ]);
+
+        // Custom Routes (Harus di atas resource)
+        Route::patch('/transactions/bulk-status', [TransactionController::class, 'bulkStatus'])->name('transactions.bulkStatus');
+        Route::delete('/transactions/bulk', [TransactionController::class, 'bulkDestroy'])->name('transactions.bulkDestroy');
+
+        // Resource Route
+        Route::resource('/transactions', TransactionController::class)->names([
+            'index' => 'transactions.index',
+            'store' => 'transactions.store',
+            'update' => 'transactions.update',
+            'destroy' => 'transactions.destroy',
         ]);
     });
 

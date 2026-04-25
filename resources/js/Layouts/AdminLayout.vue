@@ -96,10 +96,12 @@ const currentTime = ref(new Date().toLocaleDateString('id-ID', {
                         </div>
                         <Link :href="route('categories.index')" class="block px-4 py-2.5 text-sm font-bold text-gray-400 hover:text-white hover:bg-gray-800 transition">Kelola Kategori</Link>
                         <Link :href="route('products.index')" class="block px-4 py-2.5 text-sm font-bold text-gray-400 hover:text-white hover:bg-gray-800 transition">Kelola Produk</Link>
+                        <Link :href="route('transactions.index')" class="block px-4 py-2.5 text-sm font-bold text-gray-400 hover:text-white hover:bg-gray-800 transition">Kelola Transaksi</Link>
                     </div>
                     <div v-if="isMasterDataOpen && !isMinified" class="mt-2 ml-6 space-y-1 border-l border-gray-700 pl-4 transition-all duration-300">
                         <Link :href="route('categories.index')" class="block py-2 px-3 text-sm font-semibold rounded-lg transition-colors" :class="route().current('categories.*') ? 'text-solafide-gold' : 'text-gray-400 hover:text-white'">Kelola Kategori</Link>
                         <Link :href="route('products.index')" class="block py-2 px-3 text-sm font-semibold rounded-lg transition-colors" :class="route().current('products.*') ? 'text-solafide-gold' : 'text-gray-400 hover:text-white'">Kelola Produk</Link>
+                        <Link :href="route('transactions.index')" class="block py-2 px-3 text-sm font-semibold rounded-lg transition-colors" :class="route().current('transactions.*') ? 'text-solafide-gold' : 'text-gray-400 hover:text-white'">Kelola Transaksi</Link>
                     </div>
                 </div>
 

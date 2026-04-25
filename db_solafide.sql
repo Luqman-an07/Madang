@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 24, 2026 at 04:11 AM
+-- Generation Time: Apr 25, 2026 at 03:24 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.16
 
@@ -170,6 +170,22 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_number`, `user_id`, `status`, `shipping_address`, `required_date`, `subtotal`, `shipping_cost`, `grand_total`, `custom_notes`, `rejection_reason`, `created_at`, `updated_at`) VALUES
+(1, 'ORD-QYW125', 2, 'awaiting_full_payment', 'Jln. Cikutra Timur No. 230, Sukabumi 69538, Maluku', '2026-05-04 00:49:46', 900000, 15000, 915000, 'Excepturi unde sunt error doloribus labore est.', NULL, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(2, 'ORD-SLO568', 2, 'processing', 'Dk. Zamrud No. 165, Magelang 70461, Kaltim', '2026-04-25 05:39:59', 1000000, 15000, 1015000, 'Quod amet sit dolores laudantium accusantium et.', NULL, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(3, 'ORD-QGC326', 1, 'awaiting_full_payment', 'Jln. Imam No. 693, Surabaya 60774, Lampung', '2026-04-27 07:27:52', 1400000, 25000, 1425000, 'Non qui est aut quisquam.', NULL, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(4, 'ORD-VWP836', 2, 'awaiting_full_payment', 'Jln. Tambak No. 978, Ambon 84289, Sulsel', '2026-04-25 09:41:18', 250000, 25000, 275000, 'Ipsum ad esse fuga.', NULL, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(5, 'ORD-UNB163', 1, 'processing', 'Ds. Pasteur No. 618, Yogyakarta 79013, Kaltara', '2026-04-30 06:57:57', 75000, 25000, 100000, 'Ea voluptas eum odio est quod minima voluptas.', NULL, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(6, 'ORD-RVM511', 1, 'awaiting_full_payment', 'Gg. Surapati No. 386, Mataram 47154, Kaltim', '2026-05-05 20:34:53', 100000, 15000, 115000, NULL, NULL, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(7, 'ORD-BQU265', 1, 'awaiting_dp', 'Jln. Radio No. 645, Surakarta 95277, Banten', '2026-04-26 21:48:58', 100000, 15000, 115000, 'Aut distinctio doloremque id ut soluta.', NULL, '2026-04-24 19:40:02', '2026-04-24 19:40:02'),
+(8, 'ORD-RZC277', 2, 'processing', 'Ki. Sumpah Pemuda No. 969, Medan 95851, Sumsel', '2026-05-01 20:49:26', 450000, 35000, 485000, 'Vero ratione nam aut velit sit sint hic.', NULL, '2026-04-24 19:40:02', '2026-04-24 19:40:02'),
+(9, 'ORD-RMO266', 2, 'awaiting_full_payment', 'Ds. Karel S. Tubun No. 229, Sorong 40508, Kaltim', '2026-05-07 17:21:52', 300000, 15000, 315000, 'Doloremque minima blanditiis ipsa ad voluptatem pariatur a.', NULL, '2026-04-24 19:40:02', '2026-04-24 19:40:02'),
+(10, 'ORD-HLH607', 2, 'awaiting_full_payment', 'Kpg. Sampangan No. 652, Lubuklinggau 38674, Jambi', '2026-05-02 01:41:41', 475000, 15000, 490000, 'Nemo sed at itaque magni omnis odit assumenda.', NULL, '2026-04-24 19:40:02', '2026-04-24 19:40:02');
+
 -- --------------------------------------------------------
 
 --
@@ -186,6 +202,27 @@ CREATE TABLE `order_items` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, `subtotal`, `created_at`, `updated_at`) VALUES
+(1, 1, 13, 1, 100000, 100000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(2, 1, 12, 2, 250000, 500000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(3, 1, 13, 3, 100000, 300000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(4, 2, 12, 4, 250000, 1000000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(5, 3, 13, 4, 100000, 400000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(6, 3, 12, 4, 250000, 1000000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(7, 4, 12, 1, 250000, 250000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(8, 5, 10, 1, 75000, 75000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(9, 6, 13, 1, 100000, 100000, '2026-04-24 19:40:01', '2026-04-24 19:40:01'),
+(10, 7, 13, 1, 100000, 100000, '2026-04-24 19:40:02', '2026-04-24 19:40:02'),
+(11, 8, 10, 2, 75000, 150000, '2026-04-24 19:40:02', '2026-04-24 19:40:02'),
+(12, 8, 13, 3, 100000, 300000, '2026-04-24 19:40:02', '2026-04-24 19:40:02'),
+(13, 9, 10, 4, 75000, 300000, '2026-04-24 19:40:02', '2026-04-24 19:40:02'),
+(14, 10, 10, 1, 75000, 75000, '2026-04-24 19:40:02', '2026-04-24 19:40:02'),
+(15, 10, 13, 4, 100000, 400000, '2026-04-24 19:40:02', '2026-04-24 19:40:02');
 
 -- --------------------------------------------------------
 
@@ -247,6 +284,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('KPZgvr3xNX5kGjf8hc20AV6DQ5L6P0vKdQg73KuV', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiIyeU0yR3VpUTJncFVPYWhMN0FsdFdXaDExRnhWT3dXUHRQRERwSkF3IiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwXC9hZG1pblwvdHJhbnNhY3Rpb25zIiwicm91dGUiOiJ0cmFuc2FjdGlvbnMuaW5kZXgifSwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI6MX0=', 1777087384),
 ('lv0WUGjj61ZBiho149gP4L5MHDi7WArsGo5cq0Sz', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJIcTZ0N1V3OEZEZzV2VjVkclRVSGZXUFEyb0pVNHBDaWthdEg5Rkp2IiwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119fQ==', 1777003780);
 
 -- --------------------------------------------------------
@@ -266,6 +304,14 @@ CREATE TABLE `transactions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `order_id`, `midtrans_order_id`, `payment_type`, `gross_amount`, `snap_token`, `status`, `created_at`, `updated_at`) VALUES
+(4, 5, 'TRX-69EC321272533', 'full_payment', 100000, '7e25940f1ea0b310610855adf9b3b499', 'settlement', '2026-04-24 20:16:34', '2026-04-24 20:23:04'),
+(5, 7, 'TRX-69EC332CB1FE5', 'dp', 50000, '4debe549a353d88b03bd8769da904a10', 'pending', '2026-04-24 20:21:16', '2026-04-24 20:21:16');
 
 -- --------------------------------------------------------
 
@@ -430,13 +476,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -448,7 +494,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
